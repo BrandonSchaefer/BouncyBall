@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Name=BouncyBall
+GenericName=SDL2 Bouncy Ball
+Comment=SDL2 Bouncy Ball
+Exec=@CMAKE_INSTALL_PREFIX@/bin/bouncy-ball
+Icon=bouncy-ball
+StartupNotify=true
+Terminal=false
+Type=Application
+MimeType=image/jpg;image/jpeg
+Categories=Graphics;Games;SDL2;SDL
+X-Ayatana-Appmenu-Show-Stubs=false
+X-Ubuntu-Touch=true
+X-Ubuntu-Single-Instance=true
