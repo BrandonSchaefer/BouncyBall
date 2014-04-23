@@ -50,6 +50,12 @@ public:
   void DisableEvents();
 
 private:
+  void UpKeyDown();
+  void DownKeyDown();
+
+  void UpKeyUp();
+  void DownKeyUp();
+
   void UpdateVelocity();
   void HandleCollision(sbe::Rect const& bound);
 

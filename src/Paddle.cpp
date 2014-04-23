@@ -55,19 +55,40 @@ void Paddle::SetInputBoundary(sbe::Rect const& rect)
   input_boundary_ = rect;
 }
 
+void Paddle::UpKeyDown()
+{
+  vel_y_ += -SPEED;
+  up_key_down_ = true;
+}
+void Paddle::DownKeyDown()
+{
+  vel_y_ += SPEED;
+  down_key_down_ = true;
+}
+
+void Paddle::UpKeyUp()
+{
+  vel_y_ = 0;
+  up_key_down_   = false;
+}
+
+void Paddle::DownKeyUp()
+{
+  vel_y_ = 0;
+  down_key_down_ = false;
+}
+
 void Paddle::HandleKeyDown(int keysym, int state, int repeat)
 {
   if (!repeat)
   {
     if (keysym == keysym_up_)
     {
-      vel_y_ += -SPEED;
-      up_key_down_ = true;
+      UpKeyDown();
     }
     else if (keysym == keysym_down_)
     {
-      vel_y_ += SPEED;
-      down_key_down_ = true;
+      DownKeyDown();
     }
   }
 }
@@ -76,13 +97,11 @@ void Paddle::HandleKeyUp(int keysym, int state, int repeat)
 {
   if (keysym == keysym_up_)
   {
-    vel_y_ = 0;
-    up_key_down_   = false;
+    UpKeyUp();
   }
   else if (keysym == keysym_down_)
   {
-    vel_y_ = 0;
-    down_key_down_ = false;
+    DownKeyUp();
   }
 }
 

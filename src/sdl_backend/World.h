@@ -69,6 +69,15 @@ public:
   void* GameData();
 
 private:
+
+  template <typename FUNC>
+  void EmitSignal(FUNC func)
+  {
+    for (auto const& layer : entity_layers_)
+      if (layer->Visible())
+        for_each(layer->hash_table().begin(), layer->hash_table().end(), func);
+  }
+
   std::vector<EntityLayer::Ptr> entity_layers_;
   void* game_data_;
   Rect rect_;

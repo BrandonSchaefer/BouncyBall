@@ -27,6 +27,8 @@
 namespace sdl_backend
 {
 
+typedef std::pair<unsigned, Entity::Ptr> EntityPair;
+
 class EntityHashTable
 {
 public:
